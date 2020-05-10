@@ -1,0 +1,95 @@
+problem link:
+
+https://codeforces.com/contest/461/problem/B
+
+editorial(best) link
+https://abitofcs.blogspot.com/2014/12/dynamic-programming-on-tree-forming-up.html
+
+//MY CODE:
+
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define ul unsigned long long int
+#define ld long double
+#define f(t) for(ll i =0;i<t;i++)
+#define vi vector<int>
+#define vl vector<ll>
+#define pb push_back
+#define ff first
+#define ss second
+#define MOD 1000000007
+#define inf 4e18
+#define EPS 1e-3
+#define PI 3.1415926535897932385
+#define display(v) f(v.size())cout << v[i]<<" "
+const double h = 1e-6;
+const int MAX_  = 100005;
+#define all(v) v.begin(),v.end()
+
+inline ll mul(ll a, ll b){ return (a * 1ll * b) % MOD; }
+inline ll sub(ll a, ll b){ ll c = a - b; if(c < 0) c += MOD; return c; }
+inline ll add(ll a, ll b){ ll c = a + b; if(c > MOD) c -= MOD; return c; }
+ll sqr(ll x){return x*x;}
+ //////////////////////*********CODE***********/////////////////////
+ //////////////////////////////////////////////////////////////////
+struct graph{
+    vi v;
+    int col;
+    //int ar,dp,sz=0,par;  //arrival , departure , size of subtree ,parent.
+};
+
+graph G[MAX_];
+
+ll dp[MAX_][2];   // having 0 blacks and having 1 black
+int n;
+
+void dfs(int st,int par = -1){
+    if(G[st].col == 1){
+        dp[st][0] = 0;
+        dp[st][1] = 1;
+    }
+    else{
+        dp[st][0] = 1;
+        dp[st][1] = 0;
+    }
+    for(int i =0;i<G[st].v.size();++i){
+        int to = G[st].v[i];
+        if(to == par){
+            continue;
+        }
+        dfs(to,st);
+        ll hze = dp[st][0];  //having zero 
+        ll hon = dp[st][1];  //having 1
+
+        // we include v in this subtree .
+        dp[st][0] = mul(hze,dp[to][0]);  // still 0
+        dp[st][1] = add(mul(hze,dp[to][1]),mul(hon,dp[to][0]));
+
+        // if we do not include v in this subtree . i.e. v will have a different tree having 1 black
+        dp[st][0] = add(dp[st][0], mul(hze,dp[to][1]));
+        dp[st][1] = add(dp[st][1], mul(hon,dp[to][1]));
+    }
+}
+
+int main()
+{
+   ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL); 
+    cin>>n;
+    f(n-1){
+        int val; cin>>val;
+        G[i+1].v.pb(val);
+        G[val].v.pb(i+1);
+    }
+    f(n){
+        cin>>G[i].col;
+    }
+    
+    dfs(0);
+    cout << dp[0][1] << "\n";
+     return 0;
+}
+
+    
