@@ -1,0 +1,201 @@
+problem link :
+https://codeforces.com/contest/444/problem/C
+
+source :
+Ashish gupta.
+
+my code:
+and basic template.
+
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+#define ul unsigned long long int
+#define ld long double
+#define f(t) for(ll i =0;i<t;i++)
+#define vi vector<int>
+#define vl vector<ll>
+#define pb push_back
+#define ff first
+#define ss second
+#define MOD 1000000007
+#define inf 4e18
+#define EPS 1e-3
+#define PI 3.1415926535897932385
+#define display(v) f(v.size())cout << v[i]<<" "
+const double h = 1e-6;
+const int MAX_  = 200005;
+#define all(v) v.begin(),v.end()
+ //////////////////////*********CODE***********/////////////////////
+ //////////////////////////////////////////////////////////////////
+const int N = 1e5 + 5;
+const int sz = 320;  // sqrt(N)  given actually.
+int n,m;
+int a[N];
+
+// for  a particular block 
+// array of blocks
+// Range sum with particular updates .
+struct sqrtDecomposition
+{
+    int L,R;
+    int col[sz],contrib[sz];
+    bool lazy = 0;
+    int extra = 0;    // extra contri when we have a lazy update
+    int sumBlock = 0;  //total contribution of this block
+    int lazyValue =  0;
+
+    void init(int l,int r)
+    {
+        for(int i =l;i<=r;i++)
+        {
+            col[i-l] = a[i];
+            contrib[i] = 0;
+        }
+        L = l,R = r;
+        extra  = 0;
+        sumBlock = 0;
+        lazyValue = 0;
+    }
+
+    void semiUpdate(int l,int r,int val)
+    {
+        if(l>r)
+            return;
+        if(lazy)
+        {
+            for(int i = L;i<=R;i++)
+            {
+                contrib[i-L] += extra;
+                col[i-L] = lazyValue;
+            }
+            lazy = 0;
+            extra = 0;
+        }
+        for(int i =l;i<=r;i++)
+        {
+            sumBlock += abs(val - col[i-L]);
+            contrib[i-L] += abs(val - col[i-L]);
+            col[i-L] = val;
+        }
+    }
+
+    void fullUpdate(int val)
+    {
+        if(lazy)  // if last lazy is already there update last lazy and assign new lazy
+        {
+            sumBlock += (abs(val-lazyValue)*(R-L+1));  
+            extra += abs(val - lazyValue);
+        }
+        else
+		{
+			for(int i=L;i<=R;i++)
+			{
+				contrib[i-L]+=abs(col[i-L]-val);
+				sumBlock+=abs(col[i-L]-val);
+				col[i-L]=val;
+			}
+		}
+
+        lazy = 1;
+        lazyValue = val;
+    }
+    void update(int l,int r,int val){
+        if(l<=L && r>=R){
+            fullUpdate(val);
+        }
+        else{
+            semiUpdate(max(l,L),min(r,R),val);
+        }
+    }
+
+    int semiQuery(int l,int r){
+        if(l>r)
+            return 0;
+        if(lazy){
+            for(int i =L;i<=R;++i){
+                contrib[i-L] += extra;
+                col[i-L] = lazyValue;
+            }
+            lazy = 0;
+            extra = 0;
+        }
+        int ans = 0;
+        for(int i =l;i<=r;++i){
+            ans += contrib[i-L];
+        }
+        return ans;
+    }
+
+    int fullQuery(){
+        return sumBlock;
+    }
+    int query(int l,int r){
+        if(l<=L && r>=R){
+            return fullQuery();
+        }
+        else{
+            return semiQuery(max(l,L),min(r,R));
+        }
+    }
+};
+
+sqrtDecomposition blocks[sz+5];
+
+void init(){
+    int blck = n/sz + 1;
+    int curL = 1,curR = sz;
+    for(int i =1;i<=blck;++i){
+        curR = min(curR,n);
+        blocks[i].init(curL,curR);
+        curL += sz;
+        curR += sz;
+    }
+}
+
+void update(int l,int r,int val){
+    int left = (l-1)/sz + 1;
+    int right = (r-1)/sz +1;
+    for(int i = left;i<=right;++i){
+        blocks[i].update(l,r,val);
+    }
+}
+
+int query(int l,int r){
+    int left = (l-1)/sz + 1;
+    int right = (r-1)/sz +1;
+    int ans = 0;
+    for(int i =left;i<=right;++i){
+        ans+=blocks[i].query(l,r);
+    }
+    return ans;
+}
+
+
+int32_t main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+     cin>>n>>m;
+    for(int i = 1;i<=n;++i){
+        a[i] = i;
+    }
+    init();
+    while(m--){
+        int ty ;  cin>>ty;
+        if(ty ==1){
+            int l,r,x;
+            cin>>l>>r>>x;
+            update(l,r,x);
+        }
+        else{
+            int l,r;
+            cin>>l>>r;
+            cout << query(l,r) << "\n";
+        }
+    }
+    return 0;
+}
+
+    
