@@ -1,0 +1,92 @@
+problem link : 
+
+https://atcoder.jp/contests/abc152/tasks/abc152_f
+
+editorial:
+
+Instead of counting the number of ”ways of painting that satisfy all the conditions,” let us
+count the number of ”ways of painting that do not satisfy one or more conditions.”
+By the inclusion-exclusion principle, it is rephrased to the problem of choosing one or more
+constraints out of M constraints and count the number of such ways of painting that do not
+satisfy any of the chosen constraints.
+Fix a combination of constraints. Consider how we can efficiently count the such ways of
+painting that do not satisfy the chosen constraints. The edges on the paths corresponding to
+the chosen constraints must be painted white. The other edges can be painted with either color.
+Therefore, let C be the number of edges covered by the paths corresponding to the chosen
+constraints, then there are 2N−1−C ways of painting such that do not satisfy any of the chosen
+constraints.
+
+my code :
+commented :
+
+struct graph{ 
+    vi v;
+};
+int path[55][55]; // u-v edge --> xth edge .
+graph G[55];
+int n,m;
+ll mask = 0;
+bool dfs(int u,int par,int v){
+    if(u == v){
+        return true;
+    }
+    for(int i =0;i<G[u].v.size();++i){
+        int to = G[u].v[i];
+        if(to == par){
+            continue;
+        }
+        if(dfs(to,u,v)){
+            mask |= (1ll<<path[u][to]);
+            return true;
+        }
+    }
+    return false;
+}
+
+int main()
+{
+   ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    cin>>n;
+    f(n-1){
+        int u,v;   cin>>u>>v;
+        G[u].v.pb(v);
+        G[v].v.pb(u);
+        path[u][v] = path[v][u] = i;
+    }
+    cin>>m;
+    ll arr[25];   // will store the mask . and it's set bits will show that ith edge belong to this u to v path.
+    f(m){                    
+        int u,v;  cin>>u>>v;
+        mask = 0;
+        dfs(u,0,v);
+        arr[i]= mask;   // storing the mask.
+        
+    }
+    ll ans = 0;
+    for(int i = 0;i<(1ll<<m);++i){   // m total instructions . if one violet any of them that will be a counter part.
+        ll count = 0;
+        for(int j =0 ;j<m;++j){      // m set bits represent that ith instrction is being voileted.
+            if(i&(1ll<<j)){
+                count |= arr[j];     // so number of edges belongs to that u to v path will be added.
+            }
+        }
+        ll sets = __builtin_popcountll(count);
+        ll val = (1ll<<(n-1-sets));    // these sets edges will have only one choice white and others have 2^(n-1-c) possibilities. 
+        ll total = __builtin_popcount(i);  
+        if(total%2){   // inclusion and exclusion..
+            ans -= val;
+        }
+        else{
+            ans += val;
+        }
+    }
+    cout << ans;
+
+
+
+    return 0;
+}
+
+    
