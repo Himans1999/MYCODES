@@ -1,0 +1,77 @@
+problem link:
+
+https://codeforces.com/contest/1349/problem/B
+
+editorial link:
+some future step predictions.
+https://codeforces.com/blog/entry/77284
+
+my solution.
+
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+
+#define vl vector<ll>
+#define vi vector<int>
+
+#define ff first
+#define ss second
+
+#define pb push_back
+#define MOD 1e9+7 
+const int nax = 1e6+5;
+#define display(v) for(int i =0;i<v.size();++i)cout << v[i] << " "
+
+inline ll add(ll a, ll b){ ll c = a + b; if(c > MOD) c -= MOD; return c; }
+
+int main()
+ {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t;  cin>>t;
+    while(t--){
+        ll n,k;
+        cin>>n>>k;
+        vl v(n);
+        int cnt = 0;
+        for(int i  =0;i<n;++i){
+            cin>>v[i];
+            if(v[i] == k){
+                cnt++;
+                v[i] = 0;
+            }
+            else if(v[i] > k){
+                v[i] = 1;
+            }
+            else{
+                v[i] = -1;
+            }
+        }
+        
+        if(cnt == 0){
+            cout << "no\n";
+            continue;
+        }
+        if(n==1){
+            cout << "yes\n";
+            continue;
+        }
+        bool ok = false;
+        for(int i=0;i<n-1;++i){
+            ok |= (v[i]>=0 && v[i+1]>=0);
+        }
+        for(int i =0;i<n-2;++i){
+            ok |= (v[i]>=0 && v[i+2]>=0);
+        }
+        if(ok)cout << "yes\n";
+        else cout << "no\n";
+    }
+
+    
+
+     return 0;
+ }
+
+
