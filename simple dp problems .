@@ -64,3 +64,18 @@ int main()
     }
      return 0;
  }
+-----------------------------------------------------------------------------------------------
+problem link : 
+https://codeforces.com/contest/474/problem/D
+
+editorial and my thoughts:
+dp[i]->represent at position i what is the state
+k is given upto k-1 number of strings will be only 1.
+at kth position number of strings will become 2.
+after that at any position make decision -> make it '1'(R) no effect it can be included as a single participant.(dp[i-1])
+make it '0'(W) it will come in group so care about dp[i-k]
+dp[i] = dp[i-1] + dp[i-k].
+
+solution link :
+https://codeforces.com/contest/474/submission/80262628
+
