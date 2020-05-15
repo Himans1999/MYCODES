@@ -1,0 +1,66 @@
+problem link :
+
+https://codeforces.com/contest/1353/problem/E
+
+video tutorial link .
+
+https://www.youtube.com/watch?v=7jmY0-yy-Tk
+
+some explanation .
+
+dp[i]  denotes -> starting from index i till end min cost we have to pay to make this k periodic
+adp[i] denotes -> if we start from index i min cost to make entire string k palindrom
+ this is nothing but adp[i] = dp[i] (for right part) + number of ones in the left side 
+ we have to turn them off the light on the left side.
+ take the minimum of all the adp[i].
+2 type of decision :
+if i am 1:
+    change to 0 -> 1 + right side everything must be 0.(pre[n-1] - pre[i])
+    remain same -> in subarry of size k every 1 must be 0 and after that dp[i+k] (min to make i+k k periodic garland)
+else for 0.(video)
+ 
+my code :
+ 
+int main()
+ {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t; cin>>t;
+    while(t--){
+        int n,k;  cin>>n>>k;
+        string str;
+        cin>>str;
+        vi pre(n,0); //prefix sums for counting ones in a range 
+        for(int i =0;i<n;++i){
+            int val = str[i]  - '0';
+            if(i)
+            pre[i] = pre[i-1] + val;
+            else 
+            pre[i] = val;
+        }
+        vi dp(n,0);  
+        vi adp(n,0);
+        int ans = INT_MAX;
+        for(int i=n-1;i>=0;i--){
+            int mn;
+            if(str[i] == '1'){
+                int tt = min(i+k-1,n-1);
+                int mz = 1 + (pre[n-1] - pre[i]);
+                int mo = ((i+k<n)?dp[i+k]:0) + pre[tt] - pre[i];
+                mn = min(mz,mo);
+            }
+            else{
+                int tt = min(i+k-1,n-1);
+                int mz = (pre[n-1] - pre[i]);
+                int mo = 1 + pre[tt] - pre[i] + ((i+k<n)?dp[i+k]:0);
+                mn = min(mz,mo);
+            }
+            dp[i] = mn;
+            adp[i] = mn + ((i==0)?0:pre[i-1]);
+            ans = min(ans,adp[i]);
+        }
+        cout << ans << "\n";
+    }
+     return 0;
+ }
