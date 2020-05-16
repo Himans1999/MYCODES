@@ -1,0 +1,21 @@
+problem link :
+https://codeforces.com/problemset/problem/711/C
+
+my thoughts :(approch)
+3-D dp.
+dp[i][j][k] -> i->upto ith index , j->upto ith index what is the beauty , k ->what is the last color is applied.
+and it will store the minimum cost to reach this state.
+
+dp[i][j][k] 
+if we apply same color as last used color or the current color is same as last color.
+if(it is uncolored) dp[i-1][j][k] + cost[i][k] (cost of coloring the ith tree using kth color)
+else dp[i-1][j][k] (if it is already coloured).
+
+if current color is different from the last color.
+if (it is uncolored) dp[i-1][j-1][l] + cost[i][k]  (l looping through all the colores) l!=k
+else dp[i-1][j-1][l] (already have some color.)
+
+solution : 
+https://codeforces.com/contest/711/submission/80299643
+
+-------------------------------------------------------------------------------------------------------------
