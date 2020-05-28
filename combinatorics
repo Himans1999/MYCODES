@@ -1,0 +1,28 @@
+my weak topic :
+
+problem :
+https://codeforces.com/contest/1359/problem/E
+
+my thoughts:
+
+the modulo will remain stable if and only if all the element in the array are divisible by lowest element.
+i.e. we fix a element (smallest one)
+and then inrange n there will be (n/i - 1) elements will be there which are divisble by i. ( i lowest element)
+then we have to select only k-1 elements (k size of the array)
+
+solution link :
+
+https://codeforces.com/contest/1359/submission/81824373
+
+
+
+...............................................................................................................
+
+problem link :
+
+
+my thoughts :
+
+
+solution link :
+
