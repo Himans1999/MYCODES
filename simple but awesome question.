@@ -75,3 +75,29 @@ int main()
  }
 
 
+////////////////////////////////////////////////////////////////////////////////////
+
+question :
+we are supposed to choose a interval such that if we remove max element remaining sum is maximum.
+
+
+
+my thoughts :
+key point is the element of the array. it's -31 to 31.
+initial step.
+   we set a upper limit on removeable element.
+   if the value in the array is graeter than upper limit then we will start again.
+   otherwise we do this:
+        sum of previous range .
+        max of that range 
+        and the sum we want to discard .
+             discard the sum means :-> previously if we encounter a phase where sum beacame -ve then we don't want to consider that.
+             so in running sum we add that sum -(discard) , discard is -ve so ultimetly we are adding it.
+
+question link :
+https://codeforces.com/contest/1359/problem/D
+
+solution Link:
+https://codeforces.com/contest/1359/submission/81811564
+             
+
