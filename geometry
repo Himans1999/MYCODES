@@ -1,0 +1,23 @@
+my weak topic.
+
+question : 
+very basic
+
+problem link :
+https://codeforces.com/contest/1216/problem/C
+
+my thoughts :
+2 black sheets -> either they will intersect of they will be sharing one corner .
+if they are not doing so then their distane will be at least one.
+so the point which is not covered will be x.5 something .
+so we multiply 2 to every vertex and we are only going to check interger cordinates.
+
+key::
+now assume all possible ways to cover white sheet we will find out that if it's not totally covered then at least one cordinate (boundary)
+will be  out of both the black boxes.
+
+solution link :
+https://codeforces.com/contest/1216/submission/81978378
+--------------------------------------------------------------------------------------------------
+
+
