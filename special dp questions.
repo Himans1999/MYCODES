@@ -19,3 +19,42 @@ solution :
 https://codeforces.com/contest/711/submission/80299643
 
 -------------------------------------------------------------------------------------------------------------
+
+// a very good dp question.
+ problem Link:
+ https://codeforces.com/contest/1216/problem/F
+ 
+ My thoughts :
+ https://codeforces.com/blog/entry/69954?#comment-544848 ( very special comment)
+ 
+ dp[0] will be our answer . 0 indexing .
+ for all index we want to find the leftmost rounter place which is in range (k) i.e (x+k <= i)
+ // for that part we will use a piece of code that is very tricky .
+   /*for(int i = n - 1; i >= -k; i--)
+    {
+        if(i >= 0 && s[i] == '1')
+            cur = i;
+        if(i + k < n)
+            pos_next[i + k] = cur;
+    }
+    */ (tricky part)
+ and now dp states are bit  easier to think.
+ dp[i-1] ->> we don't place router dp[i] + i 
+  we have the index to leftmost router place. if we place a router at that place it'a effect will be at left side also;
+ effective left side. max(0,leftmost[i-1]-k).
+ so we can use push dp concept to update that new place. new place will be updated as .
+ dp[i] + leftmost[i-1] + 1
+ 
+ solution link:
+ https://codeforces.com/contest/1216/submission/81984770
+ -----------------------------------------------------------------------------------------
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
