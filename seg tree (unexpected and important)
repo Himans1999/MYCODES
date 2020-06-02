@@ -1,0 +1,21 @@
+problem link :
+
+https://codeforces.com/contest/482/problem/B
+
+My thoughts :
+at 1st  glance one can't think of seg tree but it is only a shorter way to calculate range ands.(&)
+
+l,r,q in range the and of the values must be q.
+if a bit is set in q then in range l to r this bit will be set for sure.
+for this we use an prefix array it shows for how long this bit will be set.
+we will traverse all m coonstrains bit wise ( 31 *m )
+then this is the expected array we have found out .
+then implement an segment tree which gives you and (&) of range l to r.
+UPD:
+implementation took 2 hours.
+structure based implementation failed.
+declare every thing globally and use it will be better (remember this in future);
+
+solution Link :
+
+https://codeforces.com/contest/482/submission/82343305
