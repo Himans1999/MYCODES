@@ -48,7 +48,33 @@ https://codeforces.com/contest/711/submission/80299643
  solution link:
  https://codeforces.com/contest/1216/submission/81984770
  -----------------------------------------------------------------------------------------
-    
+  
+  problem link :
+  
+  https://codeforces.com/contest/1272/problem/F
+  
+  My thoughts:
+  see 3 state is needed for this dp i,j,k .
+  i represent prefix of 1st string (0 to i) till covered
+  j represent prefix of 2nd string (o to j) till covered
+  and k is the balanced factor till now . if we append open braket we increase the bal factor by 1.
+  and appendng of closing bracket will decrease it.
+  
+  we have 2 options append ( or ).
+  
+  if we append ( . and this is present at ith position of the string 1 then we will increase i and update next state.
+  so for j.
+  and finally backtrack the path to get the string.
+  
+  
+  editorial Link:
+  
+  https://codeforces.com/blog/entry/72132
+  
+  solution Link:
+  https://codeforces.com/contest/1272/submission/82437284
+  
+  --------------------------------------------------------------------------------------
  
  
  
