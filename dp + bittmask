@@ -1,0 +1,85 @@
+start this beautiful topic with some basic and easy examples:
+
+leetcode : 943 
+
+My thought :
+
+if we combine 2 or more strings then it's requied to remove the overlapping part from one of them
+
+step 1 :
+so just calculate overlapping part of all the pairs
+
+step 2:
+let's decide dp states
+mask -> and what is the previous string you have considered in order to remoove the overlapping part
+
+why mask : we will try all possibilities there are 2 power n possibilities in order to keep track of availability of string we need a mask.
+
+so there are 2 things requied to make a dp lookup table.
+
+let's think of memoisation approch ot his problem .,
+
+we want a shortestt string possible which satisfy all the coditions.
+
+code :::
+path array is just to keep track of ans
+in which order we included the string.  (this is too much of explanation.)
+main step :
+int f(vector<string> & A,int mask,vector<vector<int>>&dp,int prev,vector<vector<int>>&path){
+        int n = A.size();
+        if(mask == (1<<n)-1){
+            return 0;
+        }    
+        
+        if(dp[mask][prev] != -1){
+            return dp[mask][prev];
+        }
+    
+        // recursive steps.
+        // prev is one indexing 
+        // 0 means there is no prev and 1 means the previous string is index number 0
+        int num,res= INT_MAX,minPath;  // num -> represent the number of char
+        // minPath -> optimal choice at this moment
+        for(int i =0;i<n;++i){
+            int ok = (1<<(i)) & mask;
+            if(ok == 0){                     // available.
+                // there is no prev then we just add
+                if(prev == 0){
+                    num = A[i].size();
+                }
+                else{
+                    num = A[i].size() - overlap[prev-1][i];
+                }
+                num += f(A,mask|(1<<i),dp,i+1,path);
+                if(num < res){
+                    res = num;
+                    minPath = i;
+                }
+            }
+        }
+        dp[mask][prev] = res;
+        path[mask][prev] = minPath;
+        return res;
+    }
+    
+    // now we have path then we just backtrack it and retrieve the path.
+     while(mask < ((1<<n)-1)){
+            temp = path[mask][prev];
+            if(prev == 0){
+                ans += A[temp];
+            }
+            else{
+                ans += A[temp].substr(overlap[prev-1][temp]);
+            }
+            mask |= (1<<temp);
+            prev =  temp + 1;
+        }
+        
+        ----------------------------------------------------------------------------------------good question:
+        
+    
+    
+    
+    
+
+
