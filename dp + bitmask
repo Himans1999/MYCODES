@@ -77,7 +77,14 @@ int f(vector<string> & A,int mask,vector<vector<int>>&dp,int prev,vector<vector<
         
         ----------------------------------------------------------------------------------------good question:
         
-    
+  leetcode question number : 1349 (similar question was in google code jam )
+  
+  thoughts all inspired by this blog .
+  aweasome blog it can ever be
+  
+  link:: https://leetcode.com/problems/maximum-students-taking-exam/discuss/503686/A-simple-tutorial-on-this-bitmasking-problem
+  
+  ---------------------------------------------------------------------------------------------basics of bitmasking how one can use it as a states .
     
     
     
