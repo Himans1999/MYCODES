@@ -1,0 +1,23 @@
+Good topic :
+problem Link :
+https://codeforces.com/contest/1363/problem/E
+
+editorial available and quite good explained .
+
+solution Link :
+
+https://codeforces.com/contest/1363/submission/82453343
+---------------------------------------------------------------------------------------------
+
+problem Link:
+https://www.codechef.com/LTIME84B/problems/TREDIFF
+
+related Topic : pigenhole .
+Key : observe the constrains. value of Ai won't exceed 100 i.e. if path between 2 nodes is greater than 100 . the answer must be 0 
+other wise we can answer all the queries in O(100) time which is quite small and it can pass all the test cases.
+editorial is quite nice
+
+
+solution Link :
+https://www.codechef.com/viewsolution/33511332
+----------------------------------------------------------------------------------------------
