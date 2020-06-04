@@ -1,0 +1,18 @@
+Important practice for code jam.
+problem Link :
+
+https://codeforces.com/contest/1363/problem/D
+
+My thoughts :
+we are suppose to find a set in which the index of max element i present.
+because we are focusing on the complete array except that set. all sets are disjoints i.e. there will only be one set which contains the id 
+of max value.
+only that set will have different answer .
+rest all other set will have max element as answer.
+
+https://www.youtube.com/watch?v=yDdzbZhSYD0
+(video editorial) 
+
+solution Link :
+https://codeforces.com/contest/1363/submission/82476080
+-----------------------------------------------------------------------------------------------
