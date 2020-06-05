@@ -1,0 +1,30 @@
+problem Link :
+https://codeforces.com/contest/1243/problem/D
+
+My thoughts :
+we just ignore given edges and try to find out connected components while ignoring the given edges .
+after finding the connected components the answer to the problem is (com - 1);
+
+solution Link:
+https://codeforces.com/contest/1243/submission/82614117
+---------------------------------------------------------------------------------------------------------------
+
+problem Link :
+https://codeforces.com/contest/1362/problem/D
+(easy )
+
+video explanation:
+https://www.youtube.com/watch?v=ZPQzYDf5A4Y&t=1059s
+
+solution Link :
+https://codeforces.com/contest/1362/submission/82570118
+------------------------------------------------------------------------------------------------------------------
+
+problem Link:
+https://codeforces.com/contest/1363/problem/E
+
+editorials are best for explanation.
+
+solution Link:
+https://codeforces.com/contest/1363/submission/82453343
+-------------------------------------------------------------------------------------------------------------------
