@@ -76,6 +76,19 @@ https://codeforces.com/contest/711/submission/80299643
   
   --------------------------------------------------------------------------------------
  
+ probelm Link :
+ https://codeforces.com/contest/1256/problem/E
+ 
+ Key point: 
+ max size of team can be 5 at max.
+ so we just have to check only 3 dp states .
+ 3 ,4 and 5 --> we can use push dp we will just predict future dp states using current states  using 3 possibilities.
+ also keep a parent array to backtrack the solution.
+ 
+ commented solution :
+ https://codeforces.com/contest/1256/submission/82728630
+ ---------------------------------------------------------------------------------------------
+ 
  
  
  
