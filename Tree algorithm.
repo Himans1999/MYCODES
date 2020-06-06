@@ -1,0 +1,205 @@
+Tree Matching .
+problem Link :
+ https://cses.fi/problemset/task/1130
+ 
+ solution (cses solutions are not public )
+ 
+ struct graph{
+	vi v;
+	int ch;
+};
+const int nax = 200*1000 + 5;
+graph G[nax];
+void add_edge(int a,int b){
+	G[a].v.pb(b);
+	G[b].v.pb(a);
+}
+vi include;
+vi exclude;
+void dfs(int st,int par = -1){
+	for(int to : G[st].v){
+		if(to == par)continue;
+		dfs(to,st);
+		exclude[st] += max(include[to],exclude[to]);
+	}
+	for(int to : G[st].v){
+		if(to == par)continue;
+		include[st] = max(include[st],1+exclude[st] + exclude[to] - max(include[to],exclude[to]));
+	}
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+   	int n; cin>>n;
+   	for(int i =0;i<n-1;++i){
+   		int a,b;
+   		cin>>a>>b;
+   		add_edge(a,b);
+   	}
+   	include = vi(n+1);
+   	exclude = vi(n+1);
+   	
+   	dfs(1);
+	 cout << max(include[1],exclude[1]) << "\n";  
+	return 0;
+}
+
+-------------------------------------------------------------------------------------------------------
+ problem 2 :
+ 
+ Tree diameter is known algorithm.
+ according to book there is a very good algo .
+ to leaf(x) and max_path(x) algo .
+ this concept will also be used in tree distance part and part2.
+ 
+ -----------------------------------------------------------------------------------------------------
+ problem 3 :
+ https://cses.fi/problemset/task/1132
+ (Tree distance 1)
+ 2 max_length concept . ( refer book for core concept)
+ 
+ solution :
+ 
+ struct graph{
+	vi v;
+	int md1,md2;    // max_distance 1  and 2
+	int ch1,ch2;		// and their corresponding vertex where it come from		
+};
+const int nax = 200*1000 + 5;
+graph G[nax];
+int mx_len[nax];
+void add_edge(int a,int b){
+	G[a].v.pb(b);
+	G[b].v.pb(a);
+}
+void dfs1(int st,int par =-1){
+	int a =0,b =0 ,childa = -1,childb = -1;
+	for(int to : G[st].v){
+		if(to == par)continue;
+		dfs1(to,st);
+		if(G[to].md1 >= b){
+			b = G[to].md1 +1;
+			childb = to;
+			if(b > a){
+				swap(a,b);
+				swap(childa,childb);
+			}
+		}
+	}
+	G[st].md1 = a;
+	G[st].md2 = b;
+	G[st].ch1 = childa;
+	G[st].ch2 = childb;
+}
+void dfs2(int st,int par=-1){
+	for(int to : G[st].v){
+		if(to == par)continue;
+		if(G[st].ch1 == to){
+			mx_len[to] = max(mx_len[st] + 1,G[st].md2 + 1);
+		}
+		else {
+			mx_len[to] = max(mx_len[st] + 1,G[st].md1 + 1);
+		}
+		dfs2(to,st);
+	}
+}
+ 
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+   	int n; cin>>n;
+   	for(int i =0;i<n-1;++i){
+   		int a,b;
+   		cin>>a>>b;
+   		add_edge(a,b);
+   	}
+   	dfs1(1);
+   dfs2(1);
+   	for(int i =1;i<=n;++i){
+   		cout <<max(mx_len[i] ,G[i].md1) << " ";
+   	}
+   	cout << "\n";
+ 
+   
+	return 0;
+}
+ ---------------------------------------------------------------------------------------------
+ 
+ problem 4 :
+ Link :
+ https://cses.fi/problemset/task/1133
+ (same type of question + some advanced logic.)
+ (for logic contact me.)
+ 
+ struct graph{
+	vl v;
+	ll ch1 = 0;   // size of subtree (number of children)  top down
+	ll con1 = 0;
+	ll ch2 = 0,con2 = 0;  // reverse when we'll  consider parents too
+};
+// we need to add some extra info for that
+// child and it's  contibution
+const int nax = 200*1000 + 5;
+graph G[nax];
+vl child[nax];
+vl contri[nax];
+// we need them when we will consider parents contri
+void add_edge(int a,int b){
+	G[a].v.pb(b);
+	G[b].v.pb(a);
+}
+void dfs1(int st,int par =-1){
+	for(int to : G[st].v){
+		if(to == par)continue;
+		dfs1(to,st);
+		ll c = G[to].ch1 + 1;  // subtree size + 1
+		ll d = G[to].con1 + c;  // contribution + edge will be counted c times
+		child[st].pb(c);
+		contri[st].pb(d);
+		G[st].ch1 += c;
+		G[st].con1 += d;
+	}	
+}
+ 
+void dfs2(int st,int id,int par = -1){
+	if(par != -1){
+		ll c = G[par].ch2 + G[par].ch1 - child[par][id];
+		ll d = G[par].con2 + G[par].con1 - contri[par][id];
+		G[st].ch2 = c+1;
+		G[st].con2 =  d + (c+1);    
+	}
+	for(int i =0,j  =0;i<(int)G[st].v.size();++i){
+		int to = G[st].v[i];
+		if(to == par)continue;
+		dfs2(to,j,st);
+		++j;
+	}
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+   	int n; cin>>n;
+   	for(int i =0;i<n-1;++i){
+   		int a,b;
+   		cin>>a>>b;
+   		add_edge(a,b);
+   	}
+   	dfs1(1);
+   	dfs2(1,1);
+   	for(int i = 1;i<=n;++i){
+   		cout << G[i].con1 + G[i].con2 << " ";
+   	}
+ 
+   
+	return 0;
+}
+----------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
