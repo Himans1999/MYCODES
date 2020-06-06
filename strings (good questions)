@@ -1,0 +1,22 @@
+problem Link :
+(tricky question )
+https://codeforces.com/contest/1256/problem/F
+
+Key point :
+obs1 : freq of characters in both the string must be same . soted(s1) == sotrted(s2).
+most important key :
+if freq of any number is greater than 1. and obs1 is satisfied than it is always possible to make them equal.
+just apply bubble sort . if number of operation differ in both the strings than same character will manage it .
+swapping of same character any number of time doesn't make any difference.
+
+Key number 2.
+let's count the inversions. (we just want the swaaping thing.)
+if inversion count have same parity then it is always possible to make them equal after some number of such operations.
+p and q same parity p-q is even .
+extra count will be managed by some extra inversion a-->b and b-->a (even number of times doesn't make any difference.)
+
+solution Link :
+https://codeforces.com/contest/1256/submission/82731585
+--------------------------------------------------------------------------------------------------------------------------
+
+
