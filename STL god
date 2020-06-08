@@ -1,0 +1,21 @@
+sometimes using stl in smart way that's all a problem need.
+
+problem link:
+https://codeforces.com/contest/1249/problem/D2
+
+use editorial for reference.
+
+My approch:
+we have to maintain for every ith index that how many segment are there which overlap this index.
+for this we maintain a set (a running set).
+where at every index we will insert some segment and remove some segments.
+for this we maintain a array. 
+for every segment we need to maintain a set where it must be sorted according to it's right boundry.
+instead we maintain set of pairs (right boundry and index).
+and we also maintain that how many segment we have already removed for ith index for this we have to maintain a variable cur and 
+a array which is used to update this for next positions.
+
+solution Link :
+https://codeforces.com/contest/1249/submission/83112134
+
+------------------------------------------------------------------------------------------------
