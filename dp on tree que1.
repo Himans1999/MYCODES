@@ -91,5 +91,30 @@ int main()
     cout << dp[0][1] << "\n";
      return 0;
 }
+-----------------------------------------------------------------------------------
+
+problem Link :
+https://codeforces.com/contest/1130/problem/D2
+
+thoughts :
+we will use a dp array to store that what is the minimum distance when we consider a starting point only.
+i.e. we only load candies at ith index only.
+ 
+ we have an array of where a[l] stores all the candies where starting point is l and ending points are in array.
+ find the minimum over all values :
+ (size -1) * n  + (from i to a[i]).
+ we will cover n distance (round) (size - 1) times and at last we will go to a[i] from i .
+ 
+ and for answer we want to find if we start from any vertex what is the minimum time we can deliver all the candies.
+ 
+ find the maximum over all vertices . (dp[j]) + (from i to j).
+ 
+ solution Link :
+ https://codeforces.com/contest/1130/submission/83246104
+ 
+ --------------------------------------------------------------------------------------------
+ 
+ 
+ 
 
     
