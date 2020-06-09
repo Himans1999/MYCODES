@@ -1,0 +1,23 @@
+problem Link :
+https://codeforces.com/contest/1130/problem/E
+
+my Thoughts :
+at 1st glance it's seems to be a scary question.
+but it isn't.
+the given function is ignoring the -ve cur_sum. this is the key to solve the problem.
+if we put -1 as a0  the the algo will give answer (s+1)*(n-1) . where s is the sum over all the elements.
+but our valid answer can be n*s .
+we consider this as our answer.
+so we have to somehow manages to make diff of this 2 values equal to k.
+ k = s - n + 1.
+ if we take max value of n the n is 2000. -1 (rest sequence.)
+ reset sequence is having sum = (s+1).
+ s + 1 = k + n.
+ 2000 + k.
+ element can't exceed 1e6 so we greedily fill this value(2000+k) at every position.
+if greater than 1e6 then print 1e6 other wise print k.
+and after that fill 0 if any place is remaining.
+
+soluion Link :
+https://codeforces.com/contest/1130/submission/83243380
+--------------------------------------------------------------------------------------------------
