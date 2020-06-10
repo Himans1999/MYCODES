@@ -85,4 +85,17 @@ https://codeforces.com/contest/474/submission/80262628
  
  solution (commented):
  https://codeforces.com/contest/698/submission/80285114
+ -----------------------------------------------------------------------------------
+ 
+ problem Link:
+ https://codeforces.com/contest/1324/problem/E
+ 
+ thoughts:
+ simple dp states dp[i][j] represent .
+ ith day and how many days we start late .
+ then finaly find the maximum of dp[n][i] i -> 0 to n
+ 
+ solution :
+ https://codeforces.com/contest/1324/submission/83320965
+ ----------------------------------------------------------------------------------------
 
