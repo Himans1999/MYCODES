@@ -1,0 +1,12 @@
+// very important technique
+problem Link :
+https://codeforces.com/contest/1324/problem/F
+
+editorial .
+find the answer for a fixed root.
+ans then shift root each time ans get the answer.
+
+solution Link :
+https://codeforces.com/contest/1324/submission/83303446
+--------------------------------------------------------------------------------
+
