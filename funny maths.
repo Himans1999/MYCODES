@@ -21,3 +21,27 @@ and after that fill 0 if any place is remaining.
 soluion Link :
 https://codeforces.com/contest/1130/submission/83243380
 --------------------------------------------------------------------------------------------------
+
+no of divisors of a number 
+d[x] = 1 + d[x/p[x]].
+where p[x] is smallest prime divisor of x.
+code :
+
+int p[nax];
+int d[nax];
+void pre(){
+    for(int x = 2;x<nax;++x){
+        if(p[x] != 0)continue;
+        for(int y = x;y<nax;y+=x){
+            if(p[y] == 0)
+                p[y] = x;  // smallest divisor
+        }
+    }
+    d[1] = 0;
+    for(int x = 2;x<nax;++x){
+        d[x] = 1 + d[x/p[x]];
+    }
+    for(int x = 2;x<nax;++x){
+        d[x] += d[x-1];
+    }
+}
