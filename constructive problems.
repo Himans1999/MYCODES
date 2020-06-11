@@ -1,0 +1,10 @@
+problem Link :
+https://codeforces.com/problemset/problem/1304/D
+
+solution Link :
+https://codeforces.com/contest/1304/submission/83357239
+
+thoughts :
+for smalledt LIS consider largest decreasing values. and apply operations.
+explained in the editorial.
+-----------------------------------------------------------------------------------------------
