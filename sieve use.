@@ -1,0 +1,32 @@
+find all prime divisors of a number.
+
+const int nax = 10000*1000 + 10;
+vector<bool> p(nax,false);
+int S[nax];
+void pre(){
+    for(int i= 2;i*i<nax;++i){
+        if(p[i])continue;
+        for(int j = i*i;j<nax;j+=i){
+            p[j] = 1;
+            S[j] = i;
+        }
+    }
+    for(int i = 0;i<nax;++i){
+        if(p[i] == false){
+            S[i] = i;
+        }
+    }   
+}
+ 
+vi all_div(int val){
+    vi ans;
+    while(val  > 1){
+        int di = S[val];
+        ans.pb(di);
+        while(val%di == 0)val/=di;
+    }
+    return ans;
+}
+ 
+ precalculation and all_div returan a vector having all prime divisors of a number.
+ --------------------------------------------------------------------------------------------
