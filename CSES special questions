@@ -1,5 +1,30 @@
 Sum of divisors :
 https://cses.fi/problemset/task/1082/
 
+from i to r we make a segment.
+and in this segment n/i  will repeate number of times .
+number = sum(r+1) - sum(i);
+
+ll fun(ll n){
+	return mul(n%MOD,mul((n-1)%MOD,((MOD+1)/2)%MOD));
+}
+ 
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+	ll n,ans = 0; cin>>n;
+	for(ll i = 1;i<=n;++i){
+		ll r = n/(n/i);
+		ans = add(ans,mul((n/i)%MOD,(fun(r+1)-fun(i)+MOD)%MOD));
+		//ans += (n/i)%MOD*(fun(r+1)-fun(i)+MOD)%MOD;
+		i = r;
+	}
+  	cout << ans;
+   return 0;
+}
+
+
 
 -------------------------------------------------------
