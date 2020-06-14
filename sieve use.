@@ -30,3 +30,16 @@ vi all_div(int val){
  
  precalculation and all_div returan a vector having all prime divisors of a number.
  --------------------------------------------------------------------------------------------
+ 
+ number of divisors .
+ int S[nax];
+void pre(){
+	for(int i = 1;i<nax;++i){
+		for(int j = i;j<nax; j+=i){
+			S[j]++;
+		}
+	}
+}
+
+-------------------------------------------------------------------------------------------
+ 
