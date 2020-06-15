@@ -40,3 +40,20 @@ recursive relation .
     	dp[i] = add(mul(i-1,dp[i-1]),mul(i-1,dp[i-2]));
     }
     cout << dp[n];
+    
+    ----------------------------------------------------------------------------------
+    
+    fast fibo.
+   
+   vl fib(ll n) {            // it returns a vector . v[0] is the nth fibo number.all call this as fib(n+1)
+  if (n == 1) return {0, 1, 1, 1,};
+  vl x = fib(n / 2);
+  x = {((x[0] * x[0]) % MOD + (x[1] * x[2]) % MOD) % MOD,
+       ((x[0] * x[1]) % MOD + (x[1] * x[3]) % MOD) % MOD,
+       ((x[2] * x[0]) % MOD + (x[3] * x[2]) % MOD) % MOD,
+       ((x[2] * x[1]) % MOD + (x[3] * x[3]) % MOD) % MOD};
+  if (n % 2)
+    x = {x[1], (x[0] + x[1]) % MOD, x[3], (x[2] + x[3]) % MOD};
+  return x;
+}
+-------------------------------------------------------------------------------------------
