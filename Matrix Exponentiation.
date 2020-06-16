@@ -148,3 +148,41 @@ we have to change some things while solving the problems.
 CSES -> solutions are available.
 -----------------------------------------------------------------------------------------------
 
+A very good problem.
+recurrance
+
+problem LInk :
+https://www.codechef.com/LRNDSA07/problems/CARR/
+
+Thoughts :
+n == 1
+	ans = m;
+n == 2	
+	ans = m + m(m-1) = m*m   (for 2nd place 2 possibilities.  same of diff.)
+
+here same means last 2 same.
+for n>2
+let's take 2 dp array.
+dp1 and dp2 
+dp1 -> last 2 index are not same.
+dp2 -> last 2 are same
+
+transition:
+dp1[i] -> last 2 are not same dp1[i-1] * (m-1) + dp2[i-1] *(m-1)
+dp2[i] ->last 2 are same 3 same are not allowed . = dp1[i-1] (keep it same when previously last 2 wer not same.)
+
+so ultimeltly we  have to find sum of these 2 ==>> f(n) + f(n-1) {dp2[i] == dp1[i-1]}
+
+it depends only 2 factors last value of dp1[i] and dp2[i] ..
+first = dp1[i] = m.
+and dp2[i] = m*(m-1).
+
+solution :
+https://www.codechef.com/viewsolution/34463935
+
+------------------------------------------------------------------------------------------------------
+
+
+
+
+
