@@ -10,3 +10,17 @@ https://codeforces.com/contest/1154/problem/E
 
 solution Link:
 https://codeforces.com/contest/1154/submission/81917756
+*-----------------------------------------------------------------------------------------
+
+Binary search .
+problem Link :
+https://codeforces.com/contest/1370/problem/D
+
+Thoughts :
+just binary search the answer.
+and just check if it is possible to make a subsequence of length greater than or equal to k having answer less than or equal to x.(BS)
+
+CODE:
+https://codeforces.com/contest/1370/submission/84516160
+
+-------------------------------------------------------------------------------------------
