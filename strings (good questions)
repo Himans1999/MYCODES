@@ -20,3 +20,17 @@ https://codeforces.com/contest/1256/submission/82731585
 --------------------------------------------------------------------------------------------------------------------------
 
 
+problem LINK :
+https://codeforces.com/contest/1370/problem/E
+
+THOUGHTS :
+help -> super editorial.
+don't include all the indices which are already set.
+now the scenario is (0 ,1 ) or (1,0).
+the answer is maximum of absolute subarray sum consisering both type of scenario, (1 and - 1) 
+editorial is best .
+
+solution :
+https://codeforces.com/contest/1370/submission/84563223
+
+
