@@ -29,3 +29,27 @@ https://codeforces.com/contest/1139/submission/84351549
 
 
 ------------------------------------------------------------------------------------------------------------------
+
+problem LINK:
+
+https://atcoder.jp/contests/abc171/tasks/abc171_f
+
+THOUGHTS :
+reverse thinking .
+we need to find all the string having (|s| + k) char and have string str as its subsequence.
+all possible strings (26)^N  N -> |s| + k.
+we will remove all possibilities where the string doesn't contain Str as a subs.
+let m is the longest length of prefix which is the subs.
+from 0 to |s| - 1 if we walk through we will get that for m places character is fixed.
+for (n-m) places character can be 25 possible . because we don't want to increse the length of prefix.
+it should not exceed length m.
+
+
+
+EDITORIAL LINK:
+https://codeforces.com/blog/entry/79153
+
+solution link :
+
+https://atcoder.jp/contests/abc171/submissions/14718036
+------------------------------------------------------------------------------------------------------------------
