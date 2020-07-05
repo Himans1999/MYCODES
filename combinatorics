@@ -53,3 +53,35 @@ solution link :
 
 https://atcoder.jp/contests/abc171/submissions/14718036
 ------------------------------------------------------------------------------------------------------------------
+
+counting problem.
+
+https://atcoder.jp/contests/abc173/tasks/abc173_f
+
+Thought :
+
+it's easy to count all possible maximum answer.
+
+pairs of 1s + pairs of 2s + pairs of 3s.
+
+and then subtract ..
+
+how to subtract.
+ if( u, v) u<v
+edge is there . it means we have to subtract something from the answer.
+something -->> no of set in which this pair appears.
+how to find them
+(min(u,v)) * ( n - max(u,v) + 1) 
+
+2 , 4
+{1,2,3,4}, ...... all after this}
+{2,3,4}  ,  ............all after this}
+
+min(u,v) is the count how many times it comes. -> and number of sets in which both of them appears. (n - mx + 1) (5-4+1) (4, 5)
+
+solution Link :
+
+https://atcoder.jp/contests/abc173/submissions/15020466
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
