@@ -89,4 +89,17 @@ int main()
     return 0;
 }
 
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+problem Link :
+https://codeforces.com/contest/1375/problem/G
+
+editorial is best..
+
+solution Link :
+https://codeforces.com/contest/1375/submission/86075477
+
+Every tree is a bipartite graph ....the best use of the concept..
+----------------------------------------------------------------------------------------------------------------------------
     
