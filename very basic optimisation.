@@ -1,0 +1,61 @@
+dp (famous dp problem.)
+
+Resources : https://www.youtube.com/watch?v=o_AJ3VWQMzA
+
+looking at the recurrance relation we arrive at one conclusion.
+
+dp[i][j] = min over all x(  worst case )
+
+worst case = 1 + max( same problem(e-1 , x-1) , same problem(e , n-x)).
+
+first subproblem is depends on x while second one depends on (-x).
+
+first will be increasing and second will be decreasing . 
+no need to check all x we will binary search x . and this is a bit optimisation,
+
+n*n*e to n*logn*e.
+
+--------------------------------------------------------------------------------------------------
+
+int dp[110][10010];
+// egg and floor
+int f(int e , int n){
+    if(dp[e][n] != -1){
+        return dp[e][n];
+    }
+    int ans;
+    if(e == 1){
+        ans  = n;
+    }
+    else if(n == 0){
+        ans = 0;
+    }
+    else{
+        int l = 1 ,  h = n;
+        while(l + 1 < h){
+            int mid = (l+h)/2;
+            int val1 = f(e-1 , mid - 1);
+            int val2 = f(e , n - mid);
+            if(val1 < val2)
+                l = mid;
+            else if(val1 > val2)
+                h = mid;
+            else 
+                l = h = mid;
+        }
+        ans = 1+ min(max(f(e-1, l-1) , f(e , n-l)) , max(f(e-1 , h-1) , f(e ,n -h)));
+        
+    }
+    return dp[e][n]  = ans;
+}
+
+
+
+
+int Solution::solve(int e, int n) {
+   memset(dp , -1 , sizeof(dp));
+   return f(e , n);
+
+}
+
+------------------------------------------------------------------------------------------------------------------
