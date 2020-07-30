@@ -1,0 +1,45 @@
+problem Link :
+https://codeforces.com/contest/1389/problem/E
+
+editorial Link:
+https://www.youtube.com/watch?v=RYVTRb5H6Jw&t=2753s
+
+formula :
+w-> day in one week
+if difference of 2 days modulo w is equal then we can say the lie on same day.
+xth day of yth month -> (y-1)*d + x -> (y-1) months passed .
+yth day of xth month -> (x-1)*d + y ;
+
+=== modulo equal 
+(x-1)*d + y === (y-1)*d + x
+
+xd + y === yd + x
+
+x*(d-1) === y*(d-1)
+
+(x-y) *(d-1) === k*w  (we can write this).
+
+we define W = w/gcd(w , d-1);
+
+divide both side with gcd(w , d-1)
+
+(x-y) * (r) === W
+
+r has no common factor with W.
+
+(x-y) === k*W
+
+x === y (modulo W).
+
+simple relation ,
+
+[1 , z] -> total days .
+
+z = k*W + (extra)
+
+can be written as this .. i.e k blocks with all weekdays , (extra) days.
+
+answer = (kC2)*(W) + (extra)*(k);
+
+Code Link :
+
