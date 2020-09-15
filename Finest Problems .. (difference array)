@@ -1,0 +1,24 @@
+Problem :
+
+https://codeforces.com/contest/1406/problem/D
+
+editorial :
+
+link ..
+official 
+
+solution :
+https://codeforces.com/contest/1406/submission/92890424
+
+Thoughts :
+max(c1 , bn) -> we are supposed to minimise this term.
+for 1st term it is very clear in editorial.
+
+updation part.
+let's create a difference array . where we are keepin ai - a(i-1) at ai th place.
+
+addition is quite simple beacuse when we add in some segment(l , r) only al - a(l-1)  and ar - a(r-1) is gonna changed.
+
+remove previous values and add accordingly.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
