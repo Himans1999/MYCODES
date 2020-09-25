@@ -27,3 +27,18 @@ Editorial. .
 solution Link :
 https://codeforces.com/contest/1375/submission/86077325
 -----------------------------------------------------------------------------------------------
+
+Problem Link :
+https://codeforces.com/contest/1104/problem/D
+
+Editorial ..
+
+firstly find in which [2^i , 2^(i+1)] interval a lies.
+
+interaction will give x as answer.
+
+then run a binary search.
+
+Solution Link :
+https://codeforces.com/contest/1104/submission/93778773
+--------------------------------------------------------------------------------------------------
