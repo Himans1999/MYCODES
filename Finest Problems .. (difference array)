@@ -22,3 +22,18 @@ addition is quite simple beacuse when we add in some segment(l , r) only al - a(
 remove previous values and add accordingly.
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Based on prefix array ..
+
+problem Link :
+https://codeforces.com/contest/1174/problem/D
+
+Editorial :
+cleary written everything inside the code .. (properly commented)
+instead of creating the array we can create the prefix array.
+
+
+solution Link :
+https://codeforces.com/contest/1174/submission/93492436
+-------------------------------------------------------------------------------------------------------------------------------------------------
