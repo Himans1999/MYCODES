@@ -113,5 +113,33 @@ solution Link :
 https://codeforces.com/contest/1389/submission/88401813
 ------------------------------------------------------------------------------------------------------------------------------
 
+
+
+problem Link : 
+https://codeforces.com/contest/1435/problem/C
+
+solution Link : 
+https://codeforces.com/contest/1435/submission/98228888
+
+Related : 
+n linked list are given find the minimum interval in which every linked list have at least one element.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Problem Link : 
+https://codeforces.com/contest/1435/problem/D
+
+solution Link :
+https://codeforces.com/contest/1435/submission/98225497
+
+Thoughts : stack problem..
+- (insert into the stack.)
+Danger : value can not be bigger than top of the stack..
+
++ pop the stack and use this number as your permutation.
+Danger : if stack is empty.
+----------------------------------------------------------------------------------------------------------------
+
+
              
 
