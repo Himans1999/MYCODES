@@ -1,0 +1,33 @@
+Problem link :
+https://www.codechef.com/problems/GCDMOD
+
+Challanges :
+A^n + B^n can not be stored even in long long.
+
+Ways:
+As we know GCD(a , b) <= a  and GCD(a , b) <= b.
+And the 2nd number is A-B.  And the max value of A-B is around 10^12.
+
+As we know GCD of a number is one of it's divisor.
+so , we can find all divisors of (A-B) and they are nothing but the potential candidates for the answer.
+
+Now our problem is
+int big_val  = a^n + b^n , ans  = 0;
+for(val : divisors){
+  if(big_val % val == 0){
+      ans = max(ans ,  val);
+   }
+}
+Biggest divisor who is the divisor of this big_val will be the GCD.
+Here we can use modular arithmatic.
+(a^n + b^n) % val = ((a^n)%val + (b^n)%val)%val
+(a^n) % val can easily be found using binary expo.
+
+
+Solution Link :
+https://www.codechef.com/viewsolution/39716497
+
+Video Editorial Link:
+https://youtu.be/rXnS4nf0T0M
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
