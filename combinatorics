@@ -106,4 +106,35 @@ https://youtu.be/v069aWK21wA
 (series .)
 --------------------------------------------------------------------------------------------------------------------------------------------
 
+Problem :
+
+JoJo's mentor Lisa Lisa told him and Caesar to solve the following problem to prepare him for battle with the Pillar Men. Help them out.
+You are given three integers N, M and K.
+Find the number of sequences A1,A2,…,AN such that:
+
+For each valid i, Ai is an integer in the range [0,M−1].
+Let's define N prefix sums of A as Si=sum of first i elements of A, where 1≤i≤N. At least K of these prefix sums are divisible by M.
+The answer could be really large, so you should compute it modulo 10^9+7.
+
+
+
+Editorial :
+if we consider a transition from index i to (i+1).
+we can always make it (%m = 0). as we have privilege to add any number [0 .. m-1].
+
+we won't deal with the sum but the modulo.
+now at least k things. 
+k time %=0 .  nC(k) * (m-1)^(n-k).
+(k+1) times %=0  nC(k+1) * (m-1)^(n-(k+1)).
+
+..  so on.
+
+
+answer :
+
+for(int i = k;i<=n;++i){
+   val += nCi * (m-1)^(n-i);
+}
+Modulos and all.
+------------------------------------------------------------------------------------------------------------------
 
