@@ -140,6 +140,22 @@ Danger : value can not be bigger than top of the stack..
 Danger : if stack is empty.
 ----------------------------------------------------------------------------------------------------------------
 
+Problem Link :
+https://codeforces.com/contest/1451/problem/C
 
+Editorial Link  :
+https://codeforces.com/blog/entry/84885     (c - string equality).
+
+Thoughts :
+swap it means we can get any possible configuration after some number of swaps.
+Before swapping if we make all the freq equal to freq of b.(i mean freq. of characters.)
+if we are unable to do this then answer is no.
+otherwise Yes.
+
+Solution :
+https://codeforces.com/contest/1451/submission/99230229
+----------------------------------------------------------------------------------------------------------------
              
+ 
+ 
 
