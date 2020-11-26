@@ -1,0 +1,17 @@
+SomeTimes BFS can Give TLE if we don't do this in correct seq.
+
+Look at this Problem :
+https://atcoder.jp/contests/abc184/tasks/abc184_e
+
+
+TLE solution :
+https://atcoder.jp/contests/abc184/submissions/18415987
+
+
+AC Solution :
+https://atcoder.jp/contests/abc184/submissions/18416051
+
+
+The only difference is i used onne extra state .. that'all to avoid some computations.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
