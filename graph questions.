@@ -28,3 +28,34 @@ editorials are best for explanation.
 solution Link:
 https://codeforces.com/contest/1363/submission/82453343
 -------------------------------------------------------------------------------------------------------------------
+
+Problem Link :
+https://codeforces.com/contest/1454/problem/E
+
+if this was a simple tree then the answer would have been ....
+1 + 2 + 3 + 4 ... (n-1) ..  ans = n*(n-1)/2;
+
+Now n edges and n vertices .
+it means we have 1 cycle in our graph..
+
+basically 1 cycle and and many (some) trees hinged to it.
+so now if we analyse if we remove that cycle then end up we will get a forest.
+
+Observations. : using this cycle.
+        node which are present in different trees they will have 2 paths . (from a fixed node to another fixed node.)
+        and nodes lies in same tree have 1 path (from 1 node to other.)
+        and in cycle it is always double.
+        
+        after removing cycle all we need to find is length of all trees in forest.
+        ans = 2* (n*(n-1))/2.
+        
+        ans = n*(n-1)  initialize.
+        
+        
+        length val : all trees in forest ans -= (val *(val-1))/2;
+        (val *(val-1))/2 -> this we have counted extra. (so just removing it.)
+        
+Solution Link:
+https://codeforces.com/contest/1454/submission/99631650
+--------------------------------------------------------------------------------------------------------------------------------
+
