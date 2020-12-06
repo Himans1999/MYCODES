@@ -201,3 +201,34 @@ Ans this is the answer to this question.
 Solution Link : 
 https://codeforces.com/gym/306143/problem/D
 ---------------------------------------------------------------------------------------------------------------------------------
+
+
+Combinatorics with simple dp.
+
+
+problem Link : 
+https://codeforces.com/gym/306143/problem/E
+
+Tutorial : 
+
+one can think about pure combinatorics. (kind of formulas and all.)
+But thinking in terms of dp will reduce the previous calculation and we don't need to care about their order and all.
+
+dp( i , j ) -> upto i person went on the escalator in time j.
+
+dp(1 , 1) = p.
+
+and transitions are,
+ 
+
+dp(i, j) = (front person of the queue walks on the escalator with probability p )+( he stay there.  with probability (1- p));
+
+dp(i , j) = p*(dp(i-1 , j-1)) + (1-p)*(dp(i , j - 1)).
+
+
+
+
+
+Solution Link :
+https://codeforces.com/gym/306143/submission/100522185
+----------------------------------------------------------------------------------------------------------------------------------------
