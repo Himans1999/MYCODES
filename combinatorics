@@ -138,3 +138,66 @@ for(int i = k;i<=n;++i){
 Modulos and all.
 ------------------------------------------------------------------------------------------------------------------
 
+Problem Link :
+https://codeforces.com/gym/306143/problem/D
+
+Tutorial :
+
+For each range we can find out the number of integers which are multiple of prime p.
+
+[l , r]  number of divisors in range [l  , r] = (r / p) - ((l+p-1)/p) + 1;
+
+In other words  = floor(r/p) - ceil(l/p) + 1.
+
+Numbers which are not multiple of p -> (r - l + 1) - divisor .
+In other words = total - divisors.
+
+Now we solve this question pairwise.
+
+All possible configuration =  multiply from 0 to n (r[i] - l[i]  + 1).
+
+(i , (i+1)%n)   
+-> we have to find the number of pairs who win the 1000 $.
+(
+(number of divisors at index i) * (number of divisors at index (i+1)%n) 
+			+
+(number of divisors at index i)*(number of non - divisors at index j)
+			+
+(number of non - divisors at index i)*(number of divisors at index j)
+) * (all configurations at other indices).
+
+
+All configuration at other indices = total  / (r[i] - l[i] + 1)*(r[(i+1)%n] - l[(i+1)%n] + 1).
+
+
+But this will surely be a case of double overflow.
+At last we have to divide everything by total.
+
+
+At each step we try to divide it by total . 
+
+Total of all configuration at other indices which is being multiplied at each step will be cancelled out and effectively we have to divide only by (r[i] - l[i] + 1)*(r[(i+1)%n] - l[(i+1)%n] + 1).
+
+
+Sum over 0 to n  -> 
+(
+(number of divisors at index i) * (number of divisors at index (i+1)%n) 
+			+
+(number of divisors at index i)*(number of non - divisors at index j)
+			+
+(number of non - divisors at index i)*(number of divisors at index j)
+) / (r[i] - l[i] + 1)*(r[(i+1)%n] - l[(i+1)%n] + 1).
+
+
+This is the number of pairs at index i which will be awarded 1000 $ each.
+
+Multiply this factor with 2000 $.
+
+Ans this is the answer to this question.
+
+
+
+
+Solution Link : 
+https://codeforces.com/gym/306143/problem/D
+---------------------------------------------------------------------------------------------------------------------------------
