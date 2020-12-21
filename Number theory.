@@ -1,8 +1,13 @@
 questions with topics .
 https://codeforces.com/contest/1242/problem/A
-(very basic chinese reminder theorm)
 
-take help from editorial.
+Thoughts : 
+n = 4 , (2 , 2)  -> 2 divisors and both are same.
+we can say it is totally periodic max col can be used is 2.
+n = 6 , (2 , 3) -> period 2 and period 3 will create a conflict.  
+if 2 different primes divides the same value then only 1 colour is possible. 
+if a number is prime -> answer will be n only.
 
 solution Link :
 https://codeforces.com/contest/1243/submission/82608951
+----------------------------------------------------------------------------------------------------
