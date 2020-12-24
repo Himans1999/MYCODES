@@ -232,3 +232,22 @@ dp(i , j) = p*(dp(i-1 , j-1)) + (1-p)*(dp(i , j - 1)).
 Solution Link :
 https://codeforces.com/gym/306143/submission/100522185
 ----------------------------------------------------------------------------------------------------------------------------------------
+
+Problem Link : 
+https://codeforces.com/gym/306143/problem/F
+(galen colin probability stream.)
+
+Idea : 
+- edge between 2 same color is not possible.
+- 2 nodes of same color should have a edge with a single node of different color (in this case we will find a path of length 2 between 2 same color nodes).
+- now the only bridges are possible is -> (R , B) , (B , P ) , (R  , P).we have to take care of 2nd point . that 2 nodes should not have an edge with a single node.
+- f( i , j) -> ith node we are working on and j nodes are available of 2nd color.
+- now we just multiply all 3 things.
+
+solution : 
+https://codeforces.com/gym/306143/submission/102175816
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
