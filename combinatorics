@@ -248,6 +248,20 @@ solution :
 https://codeforces.com/gym/306143/submission/102175816
 ----------------------------------------------------------------------------------------------------------------------------------------
 
+Problem Link : 
+https://codeforces.com/contest/1453/problem/D
 
+Idea :
+- at a particular point there are 2 options . -> go forward , stay at the same place.
+- important observation : 1 -> Ex value . 2 .
+- we need 2 tries . 1 pass and go forward , 2nd fail and remain at the same place cause it is the last activated checkpoint.
+- whenever we encounter a check point -> we treat it as a separate  problem and can add tha previous answer.
+- (10)  for 1 -> 2  , for 0 -> go forward 1 try .   fail and go to 1 -> 1 more try . and from 1 again go to 0. -> 2 try.
+ -  2 + 1 + 1 + 2 -> (2 + 4) tries.  4 -> stay at the 0.
+- (100) same way . 2 + 4 + 8. ... and so on
+
+Solution : 
+https://codeforces.com/contest/1453/submission/102382130
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
