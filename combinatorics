@@ -264,4 +264,22 @@ Solution :
 https://codeforces.com/contest/1453/submission/102382130
 --------------------------------------------------------------------------------------------------------------------------------------
 
+Problem Link : 
+https://codeforces.com/gym/307293/problem/I
+
+Idea : 
+- there are y places.   x  = p1^k1 * p2^k2 * ... 
+- power of each prime should be divided in y blocks.
+- it is standard stars and bars concept.    
+- mul(  (ki + y - 1)C( y - 1))  ) 
+- now -ve numbers are also available .
+- 2^(y-1) for 1st y places and according we will place sign of last place. 
+- if there are odd number of -ve sign upto the place (y-1) -> we will set -ve sign.
+- other wise +ve sign.
+- answer : 2^(y-1) * mul(   (ki + y - 1)C( y - 1))  ).
+
+
+Solution : 
+https://codeforces.com/gym/307293/submission/102391523
+--------------------------------------------------------------------------------------------------------------------------------------
 
