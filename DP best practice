@@ -19,3 +19,21 @@ Solution and my Thoughts(written in the code)
 https://codeforces.com/contest/988/submission/98755689
 
 --------------------------------------------------------------------------------------------------------------
+
+Problem Link : 
+https://codeforces.com/contest/1207/problem/C
+
+Solution Link : 
+https://codeforces.com/contest/1207/submission/102530979
+
+Hint :
+
+[x , x+1]  we are working on an interval.
+
+2 important invalid cases.
+1. s[id-1] == '1' and cur_status = 0. 
+piller id-1 wants height - 2. [id -1 , id] -> height must be 2.
+
+2. s[id] = 1 , cur_status = 0  -> invalid.
+--------------------------------------------------------------------------------------------------------------------
+
