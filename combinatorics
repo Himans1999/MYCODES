@@ -283,3 +283,20 @@ Solution :
 https://codeforces.com/gym/307293/submission/102391523
 --------------------------------------------------------------------------------------------------------------------------------------
 
+Problem Link: 
+https://codeforces.com/contest/1443/problem/F
+
+Solution Link : 
+https://codeforces.com/contest/1443/submission/102904551
+
+Tutorial -> CF 
+
+Thoughts -> a[i-1] a[i] a[i+1]
+
+if we want to include a[i] in current sequence : 
+- if a[i-1] and a[i+1] will be included in future then ans = 0 (contrediction.)
+- if a[i-1] and a[i+1] will not be included -> then we have 2 possiblilty of removal and both are indistinguisable -> beacause after including element a[i] -> a[i] will become 
+  removable.
+  ans = ans * 2 -> the continue;
+- if only 1 of them is removable then removal that and continue.
+--------------------------------------------------------------------------------------------------------------------
