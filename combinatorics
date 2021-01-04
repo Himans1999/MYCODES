@@ -300,3 +300,15 @@ if we want to include a[i] in current sequence :
   ans = ans * 2 -> the continue;
 - if only 1 of them is removable then removal that and continue.
 --------------------------------------------------------------------------------------------------------------------
+
+Problem Link : (related to GCD).
+https://codeforces.com/gym/307293/problem/J
+
+Thoughts : 
+How many distinct value of gcd are possible at particlar node.
+
+Solution Link : 
+
+https://codeforces.com/gym/307293/submission/103153720
+---------------------------------------------------------------------------------------------------------------------------------
+
