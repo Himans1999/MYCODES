@@ -323,3 +323,36 @@ https://codeforces.com/contest/1418/submission/104399065
 
 ---------------------------------------------------------------------------------------------------------------------------------
 
+Problem Link : 
+https://codeforces.com/contest/1332/problem/E
+
+Solution Link (commented & tutorial).
+https://codeforces.com/contest/1332/submission/105218553
+
+Tutorial : 
+Notes : 
+operation 1 -> changes the parity of 2 adjecent blocks.
+operation 2 -> parity remains same.
+1 . -> only thing that is important is parity.
+if all cells have same parity then we can always make everything equal.
+total = (r - l + 1)^(n*m).  possible arrangments.
+if number of cells having odd parity is even or number of cells having even parity is even.
+then one parity can be converted into another parity.
+let's say we have 4 cells having even parity rest all are having odd parity. we can convert these 4 cells into odd parity.
+(even node) - (bunch of odd nodes probably 0) - (even node).
+try to follow the path and apply operation 1, change the parity. on end node we will perform parity changer operation 1 times and 
+on other nodes we will apply even operation -> it means even parity converted into odd parity .
+odd parity remains odd cause even number of operations.
+
+so if we have number of odd parity cell -> odd and no. of even parity cells also odd -> then there is no answer.
+tot - (such cases)
+
+approch : if n*m is odd -> number of even + no of odd = odd . -> one of them must be even. -> (r - l + 1)^(n*m).
+else total((r - l + 1) ^ ( n*m)) - when both are odd.
+both are odd. nc = n*m (number of cells.)
+ = ncC1 * (o)^1 * e^(nc - 1) + ncC3 * o^3 * e^(nc - 3) + ... 
+
+ o and e are number of odd parity available inside [l , R].
+ this is basically = (o + e)^(n*m) - (o - e)^(n*m)
+
+--------------------------------------------------------------------------------------------------------------------------------------------
