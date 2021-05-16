@@ -37,3 +37,12 @@ piller id-1 wants height - 2. [id -1 , id] -> height must be 2.
 2. s[id] = 1 , cur_status = 0  -> invalid.
 --------------------------------------------------------------------------------------------------------------------
 
+
+question .  https://atcoder.jp/contests/abc201/tasks/abc201_f
+
+Editorial -> given with this question. (cool and good).
+
+https://atcoder.jp/contests/abc201/submissions/22659834
+
+-------------------------------------------------------------------------------------------------------------------
+
